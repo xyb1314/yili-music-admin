@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import { Quasar } from 'quasar'
+import { Quasar, Notify } from 'quasar'
 import store from './store'
 import './permission.js'
 // Import icon libraries
@@ -16,7 +16,7 @@ myApp.use(router)
 myApp.use(store)
 
 myApp.use(Quasar, {
-  plugins: {} // import   Quasar plugins
+  plugins: { Notify }
 })
 
 myApp.mount('#app')

@@ -1,18 +1,27 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 import layout from '../pages/Layout.vue'
+export const menuRoutes = [
+  {
+    path: 'dashboard',
+    name: 'Dashboard',
+    meta: { title: '控制台', icon: 'dashboard' },
+    component: () => import('../pages/dashboard/index.vue')
+  },
+  {
+    path: 'user',
+    name: 'User',
+    meta: { title: '用户管理', icon: 'manage_accounts' },
+    component: () => import('../pages/user/index.vue')
+  }
+]
 
 const routes = [
   {
     path: '/',
     component: layout,
-    redirect: 'index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('../pages/index/index.vue')
-      }
-    ]
+    redirect: 'dashboard',
+    children: menuRoutes
   },
   {
     path: '/login',
